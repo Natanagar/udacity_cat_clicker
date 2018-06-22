@@ -1,8 +1,11 @@
 let insertPics = document.querySelector('.press'),
 addtitionalContainer,
-arrayWithImage = [
+objectWithImage = {
+  lastIndex: 0,
+  arrayWithImage : [
   'image/1.jpeg', 'image/2.jpeg', 'image/3.jpeg'
-];
+  ]
+};
 
 //function create html-element with class container and return it.
 let addDiv = function(){
@@ -20,18 +23,11 @@ let clearDiv = function(element){
 //function add image to div
 let addPicsToDiv = function(element){
   //console.log('Hura!');
-  for (let i = 0, len = arrayWithImage.length; i< len; i++) {
-    console.log(arrayWithImage[i]);
-    element.src = arrayWithImage[i];
-    arrayWithImage.splice(i,1);
-    console.dir(arrayWithImage);
-    console.log(i);
-    //return i;
+  for (let i = objectWithImage.lastIndex; i < arrayWithImage.length; i++) {
+    element.src = `${objectWithImage.arrayWithImage[i]}`;
+    objectWithImage.lastIndex = i+1;
     break;
-
-  }
-
-
+  };
 }
 
 insertPics.addEventListener('click', (e) => {
@@ -40,8 +36,9 @@ insertPics.addEventListener('click', (e) => {
   let indexElement = pressElement.nextElementSibling;
     clearDiv(outerElement);
     outerElement.appendChild(addDiv());
-    //console.log(arrayWithImage);
+    //console.log(objectWithImage);
     addPicsToDiv(outerElement);
+    console.log(outerElement);
     //indexElement.innerHTML = `Index of image ${i}`;
 
  // Todo...
