@@ -1,3 +1,4 @@
+//variable declaration
 let insertPics = document.querySelector('.press'),
 addtitionalContainer,
 image,
@@ -19,7 +20,7 @@ let addDiv = function(){
 let clearDiv = function(element){
   element.innerHTML = " ";
 }
-
+//function with it we create image element
 let createImage = function(){
   image = document.createElement('img');
   image.classList.add('photo');
@@ -31,16 +32,14 @@ let addPicsToDiv = function(element){
   for (let i = objectWithImage.lastIndex; i < objectWithImage.arrayWithImage.length; i++) {
       createImage();
       image.src = `${objectWithImage.arrayWithImage[i]}`;
-      //console.log(`${objectWithImage.arrayWithImage[i]}`);
       element.prepend(image);
-    //console.log(`${objectWithImage.arrayWithImage[i]}`);
       objectWithImage.lastIndex = i+1;
-    //console.log(element);
       break;
       return objectWithImage.lastIndex;
   };
 }
 
+//logics as a controller
 insertPics.addEventListener('click', (e) => {
   let pressElement = event.target;
   let outerElement = pressElement.previousElementSibling.firstElementChild;
