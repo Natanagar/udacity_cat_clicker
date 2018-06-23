@@ -3,7 +3,7 @@ addtitionalContainer,
 objectWithImage = {
   lastIndex: 0,
   arrayWithImage : [
-  'image/1.jpeg', 'image/2.jpeg', 'image/3.jpeg'
+  'image/1.jpg', 'image/2.jpg', 'image/3.jpg'
   ]
 };
 
@@ -22,10 +22,16 @@ let clearDiv = function(element){
 
 //function add image to div
 let addPicsToDiv = function(element){
-  //console.log('Hura!');
-  for (let i = objectWithImage.lastIndex; i < arrayWithImage.length; i++) {
-    element.src = `${objectWithImage.arrayWithImage[i]}`;
+  for (let i = objectWithImage.lastIndex; i < objectWithImage.arrayWithImage.length; i++) {
+    console.log(`${objectWithImage.arrayWithImage[i]}`);
+    let image = document.createElement('img');
+    image.src = `${objectWithImage.arrayWithImage[i]}`;
+    image.classList.add('photo');
+    image.alt = 'cat';
+    //element.src = `${objectWithImage.arrayWithImage[i]}`;
+    element.appendChild(image);
     objectWithImage.lastIndex = i+1;
+    console.log(element);
     break;
   };
 }
@@ -36,7 +42,7 @@ insertPics.addEventListener('click', (e) => {
   let indexElement = pressElement.nextElementSibling;
     clearDiv(outerElement);
     outerElement.appendChild(addDiv());
-    //console.log(objectWithImage);
+    console.log(outerElement);
     addPicsToDiv(outerElement);
     console.log(outerElement);
     //indexElement.innerHTML = `Index of image ${i}`;
