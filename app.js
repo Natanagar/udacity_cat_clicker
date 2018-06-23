@@ -12,7 +12,6 @@ objectWithImage = {
 let addDiv = function(){
     addtitionalContainer = document.createElement('div');
     addtitionalContainer.classList.add('container');
-    //console.log(addtitionalContainer);
     return addtitionalContainer;
 
 }
@@ -25,23 +24,24 @@ let clearDiv = function(element){
 //function add image to div
 let addPicsToDiv = function(element){
   for (let i = objectWithImage.lastIndex; i < objectWithImage.arrayWithImage.length; i++) {
-    console.log(`${objectWithImage.arrayWithImage[i]}`);
-    image = document.createElement('img');
-    image.src = `${objectWithImage.arrayWithImage[i]}`;
-    console.log(`${objectWithImage.arrayWithImage[i]}`)
-    image.classList.add('photo');
-    image.alt = 'cat';
-    element.appendChild(image);
-    objectWithImage.lastIndex = i+1;
+      image = document.createElement('img');
+      image.src = `${objectWithImage.arrayWithImage[i]}`;
+      console.log(`${objectWithImage.arrayWithImage[i]}`);
+      image.classList.add('photo');
+      image.alt = 'cat';
+      element.prepend(image);
+    //console.log(`${objectWithImage.arrayWithImage[i]}`);
+      objectWithImage.lastIndex = i+1;
     //console.log(element);
-    break;
-    return objectWithImage.lastIndex;
+      break;
+      return objectWithImage.lastIndex;
   };
 }
 
 insertPics.addEventListener('click', (e) => {
   let pressElement = event.target;
   let outerElement = pressElement.previousElementSibling.firstElementChild;
+  console.log(outerElement);
   let indexElement = pressElement.nextElementSibling;
     clearDiv(outerElement);
     outerElement.appendChild(addDiv());
