@@ -20,15 +20,18 @@ let clearDiv = function(element){
   element.innerHTML = " ";
 }
 
-
+let createImage = function(){
+  image = document.createElement('img');
+  image.classList.add('photo');
+  image.alt = 'cat';
+  return image;
+}
 //function add image to div
 let addPicsToDiv = function(element){
   for (let i = objectWithImage.lastIndex; i < objectWithImage.arrayWithImage.length; i++) {
-      image = document.createElement('img');
+      createImage();
       image.src = `${objectWithImage.arrayWithImage[i]}`;
-      console.log(`${objectWithImage.arrayWithImage[i]}`);
-      image.classList.add('photo');
-      image.alt = 'cat';
+      //console.log(`${objectWithImage.arrayWithImage[i]}`);
       element.prepend(image);
     //console.log(`${objectWithImage.arrayWithImage[i]}`);
       objectWithImage.lastIndex = i+1;
