@@ -43,19 +43,15 @@ let addPicsToDiv = function(element){
 insertPics.addEventListener('click', (e) => {
   let pressElement = event.target;
   let outerElement = pressElement.previousElementSibling.firstElementChild;
-  console.log(outerElement);
   let indexElement = pressElement.nextElementSibling;
     clearDiv(outerElement);
-    outerElement.appendChild(addDiv());
-    //console.log(outerElement);
     addPicsToDiv(outerElement);
+    //console.log(indexElement);
     if(indexElement.firstElementChild){
       clearDiv(indexElement.firstElementChild);
 
     } else {
-      let indexOfPics = document.createElement('div');
-      indexOfPics.innerHTML = "`Number of pics ${objectWithImage.lastIndex}`";
-      indexElement.appendChild(indexOfPics);
+      indexElement.innerHTML = `Number of pics ${objectWithImage.lastIndex}`;
 
     }
 
