@@ -1,5 +1,6 @@
 let insertPics = document.querySelector('.press'),
 addtitionalContainer,
+image,
 objectWithImage = {
   lastIndex: 0,
   arrayWithImage : [
@@ -19,15 +20,20 @@ let addDiv = function(){
 let clearDiv = function(element){
   element.innerHTML = " ";
 }
+let createImage = function(){
+    image = document.createElement('img');
+    image.src = `${objectWithImage.arrayWithImage[i]}`;
+    console.log(`${objectWithImage.arrayWithImage[i]}`)
+    image.classList.add('photo');
+    image.alt = 'cat';
+    return image;
+}
 
 //function add image to div
 let addPicsToDiv = function(element){
   for (let i = objectWithImage.lastIndex; i < objectWithImage.arrayWithImage.length; i++) {
     console.log(`${objectWithImage.arrayWithImage[i]}`);
-    let image = document.createElement('img');
-    image.src = `${objectWithImage.arrayWithImage[i]}`;
-    image.classList.add('photo');
-    image.alt = 'cat';
+    createImage();
     //element.src = `${objectWithImage.arrayWithImage[i]}`;
     element.appendChild(image);
     objectWithImage.lastIndex = i+1;
