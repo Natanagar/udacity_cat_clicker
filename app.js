@@ -31,8 +31,9 @@ let addPicsToDiv = function(element){
     //element.src = `${objectWithImage.arrayWithImage[i]}`;
     element.appendChild(image);
     objectWithImage.lastIndex = i+1;
-    console.log(element);
+    //console.log(element);
     break;
+    return objectWithImage.lastIndex;
   };
 }
 
@@ -42,10 +43,17 @@ insertPics.addEventListener('click', (e) => {
   let indexElement = pressElement.nextElementSibling;
     clearDiv(outerElement);
     outerElement.appendChild(addDiv());
-    console.log(outerElement);
+    //console.log(outerElement);
     addPicsToDiv(outerElement);
-    console.log(outerElement);
-    //indexElement.innerHTML = `Index of image ${i}`;
+    if(indexElement.firstElementChild){
+      clearDiv(indexElement.firstElementChild);
 
- // Todo...
+    } else {
+      let indexOfPics = document.createElement('div');
+      indexOfPics.innerHTML = "`Number of pics ${objectWithImage.lastIndex}`";
+      indexElement.appendChild(indexOfPics);
+
+    }
+
+ /// Todo...
 });
