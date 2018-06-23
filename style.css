@@ -13,12 +13,22 @@
 	left: 50%;
 }
 .outer{
-	display: flex;
+	/*display: inline-flex;*/
 	width: 100%;
 	height: 500px;
-	font-size: 72px;
+	font-size: 54px;
 	text-align: center;
 	padding: 5px;
+}
+button{
+	margin-left: 42%;
+	margin-top: 20px;
+	width: 150px;
+	background-color: #efeff5;
+	opacity: .7;
+	border-radius: 5px white;
+	display: inline-block;
+
 }
 .inner{
 	width: 600px;
@@ -27,8 +37,17 @@
 	margin: 0 50px 0 50px;
 }
 .photo{
+	padding-left: 100px;
 	width: 600px;
 	height: 400px;
+}
+.index{
+	/*display: flex;*/
+	padding: 10px;
+	margin: auto;
+	width: 40%;
+	background: #e6f2ff;
+	text-align: center;
 }
 
 	

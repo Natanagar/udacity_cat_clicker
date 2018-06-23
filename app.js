@@ -46,7 +46,8 @@ insertPics.addEventListener('click', (e) => {
   let indexElement = pressElement.nextElementSibling;
     clearDiv(outerElement);
     addPicsToDiv(outerElement);
-    //console.log(indexElement);
+
+    //if the div-element is not empty - makes it empty and insert to div number of pics
     if(indexElement.firstElementChild){
       clearDiv(indexElement.firstElementChild);
 
@@ -54,6 +55,4 @@ insertPics.addEventListener('click', (e) => {
       indexElement.innerHTML = `Number of pics ${objectWithImage.lastIndex}`;
 
     }
-
- /// Todo...
 });
